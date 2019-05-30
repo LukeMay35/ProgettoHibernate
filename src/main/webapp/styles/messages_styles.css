@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+/******************************
+
+[Table of Contents]
+
+1. Messages
+
+******************************/
+
+
+/*********************************
+1. Messages
+*********************************/
+
+html {
+	height:100%;
+}
+body {
+	height:100%;
+	margin:0px;
+}
+.message_container {
+    max-width: 30%;
+}
+
+.inbox_people {
+    background: #fff;
+    float: left;
+    overflow: hidden;
+    width: 30%;
+    border-right: 1px solid #ddd;
+    height: 100%;
+}
+::selection {
+    background: #fde0db;
+    color: #FF6347;
+}
+.inbox_msg {
+    border: 1px solid #ddd;
+    clear: both;
+    overflow: hidden;
+    height: 100%;
+}
+
+.top_spac {
+    margin: 20px 0 0;
+}
+
+.recent_heading {
+    float: left;
+    width: 100%;
+}
+.recent_heading a {
+    color: #fe4c40;
+}
+
+.headind_msg {
+    padding: 15px 15px 15px 15px;
+    overflow: hidden;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.recent_heading h4 {
+    display: inline-block;
+    color: #fe4c40;
+    font-size: 16px;
+    margin: auto;
+    float: right;
+    line-height: 29px;
+}
+
+.chat_ib h5 {
+    font-size: 15px;
+    color: #464646;
+    margin: 0 0 8px 0;
+}
+
+.chat_ib h5 span {
+    font-size: 13px;
+    float: right;
+}
+
+.chat_ib p {
+    font-size: 12px;
+    color: #989898;
+    margin: auto;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat_ib {
+    float: left;
+    padding: 0 0 0 15px;
+    width: 88%;
+}
+
+.chat_people {
+    overflow: hidden;
+    clear: both;
+}
+
+.chat_list {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    padding: 18px 16px 10px;
+}
+
+.inbox_chat {
+    overflow-y: scroll;
+    height: 90%;
+}
+
+.active_chat {
+    background: #e8f6ff;
+}
+
+.received_msg {
+    display: inline-block;
+    margin-bottom: 15px;
+    vertical-align: top;
+    width: 92%;
+}
+
+.received_withd_msg p {
+    background: #ebebeb none repeat scroll 0 0;
+    border-radius: 15px;
+    color: #646464;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+}
+
+.time_date {
+    color: #747474;
+    display: block;
+    font-size: 12px;
+    margin: 8px 0 0;
+}
+
+.received_withd_msg {
+    width: 70%;
+}
+
+.mesgs {
+    float: left;
+    height: 100%;
+    padding: 10px 15px 0 25px;
+    width: 70%;
+}
+
+.sent_msg p {
+    float: right;
+    background: #fe4c40;
+    border-radius: 15px;
+    font-size: 14px;
+    margin: 0;
+    color: #fff;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+}
+
+.outgoing_msg {
+    float: right;
+    width: 70%;
+    overflow: hidden;
+    margin: 15px 0 15px;
+}
+
+.sent_msg {
+    float: right;
+    width: 70%;
+}
+
+.input_msg_write input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #4c4c4c;
+    font-size: 15px;
+    min-height: 48px;
+    width: 100%;
+    outline: none;
+}
+
+.type_msg {
+    border-top: 1px solid #c4c4c4;
+    position: relative;
+    height: 7%;
+}
+
+.msg_send_btn {
+    background: #fe4c40 none repeat scroll 0 0;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 11px;
+    width: 33px;
+}
+
+.messaging {
+        position:fixed !important;
+        height: 100%;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+}
+
+.msg_history {
+    height: 92%;
+    overflow-y: auto;
+}
+
+.msgs_header {
+    display: none;
+    padding: 15px 15px 15px 15px;
+    overflow: hidden;
+    height: 7%;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.message_header i {
+    font-size: 21px;
+    color: #fe4c40;
+}
+
+.message_header h4 {
+    display: inline-block;
+    color: #fe4c40;
+    font-size: 16px;
+    margin: auto;
+    float: right;
+    line-height: 29px;
+}
+
+@media screen and (max-width: 768px) {
+    .inbox_people {
+        display: block;
+        width: 100%;
+    }
+    .msg_history {
+        height: 86% ;
+    }
+    .inbox_chat {
+        height: 90%;
+    }
+    .mesgs {
+        display: none;
+        float: left;
+        padding: 0 0 0 0;
+        width: 100%;
+    }
+    .sent_msg {
+        width: 100%;
+    }
+    .msgs_header {
+        display: block;
+    }
+}

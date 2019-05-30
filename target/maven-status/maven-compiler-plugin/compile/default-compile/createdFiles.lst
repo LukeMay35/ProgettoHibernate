@@ -1,0 +1,11 @@
+it\alexandria\hibernate\model\Commento.class
+it\alexandria\hibernate\model\Messaggio.class
+it\alexandria\hibernate\model\Categoria.class
+it\alexandria\hibernate\model\Vendita.class
+it\alexandria\hibernate\control\HibernateUtil.class
+it\alexandria\hibernate\control\Login.class
+it\alexandria\hibernate\model\Carrello.class
+it\alexandria\hibernate\model\Profilo.class
+it\alexandria\hibernate\control\App.class
+it\alexandria\hibernate\model\Risorsa.class
+it\alexandria\hibernate\control\ILogin.class
