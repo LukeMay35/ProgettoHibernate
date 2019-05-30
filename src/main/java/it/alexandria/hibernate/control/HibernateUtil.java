@@ -39,7 +39,7 @@ public class HibernateUtil {
 		}
 	  }
 	 
-	  DateTimeFormatter dfm=DateTimeFormatter.ofPattern("yyy/MM/dd hh:mm ");
+	  DateTimeFormatter dfm=DateTimeFormatter.ofPattern("yyy/MM/dd HH:mm:ss:SSS ");
 	  writer.println(dfm.format(LocalDateTime.now())+str);
 	  writer.flush();
   }
