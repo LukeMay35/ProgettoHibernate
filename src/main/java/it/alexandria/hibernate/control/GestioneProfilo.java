@@ -77,7 +77,7 @@ public class GestioneProfilo extends HttpServlet implements IGestioneProfilo{
 		}
 		return "";
 	}
-	
+	/*
 	private String[] getParameters(String content, String string) {
 		if(content.equals("")) {
 			return null;
@@ -106,7 +106,7 @@ public class GestioneProfilo extends HttpServlet implements IGestioneProfilo{
 		}
 		return res.toArray(new String[0]);
 	}
-	
+	*/
 	public void ordine(HttpServletRequest request, HttpServletResponse response) {
 		if(request.getSession()==null) {
 			try {
@@ -312,7 +312,12 @@ public class GestioneProfilo extends HttpServlet implements IGestioneProfilo{
 		String email=getParameter(content,"email");
 		String tel=getParameter(content,"tel");
 		String address=getParameter(content,"address");
-		String[] interessi=getParameters(content,"interessi");
+		List<Categoria> interessi=new ArrayList<Categoria>();
+		for (Categoria c : Categoria.values()) {
+			if (!getParameter(content,c.toString()).equals("")) {
+				interessi.add(c);
+			}
+		}
 		String username=(String)request.getSession().getAttribute("username");
 		HibernateUtil.printLog(request.getSession().getAttribute("username")+" richiede di modificare il suo profilo");
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -333,17 +338,17 @@ public class GestioneProfilo extends HttpServlet implements IGestioneProfilo{
 			request.getSession().setAttribute("indirizzo", address);
 		}
 		
-		if(interessi!=null) {
+		if(interessi.size()>0) {
 			@SuppressWarnings("unchecked")
 			List<UCMapping> interes = (List<UCMapping>) session.createQuery("FROM UCMAPPING WHERE USERNAME= :USERNAME").setParameter("USERNAME", username).getResultList();
 			for(UCMapping interesse:interes) {
 				session.delete(interesse);
 			}
 			List<UCMapping> newList=new ArrayList<UCMapping>();
-			for(String interesse:interessi) {
+			for(Categoria interesse:interessi) {
 				UCMapping map=new UCMapping();
 				map.setUsername(username);
-				map.setCategoria(Categoria.valueOf(interesse));
+				map.setCategoria(interesse);
 				session.save(map);
 				newList.add(map);
 			}

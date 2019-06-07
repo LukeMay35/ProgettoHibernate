@@ -173,16 +173,18 @@
 						<textarea name="address" rows="2" cols="30" maxlength="100"></textarea>
 						<br>Scegli fra gli Interessi: <br>
 
-						<div id="interests" class="interests" tabindex="100">
-							<span class="anchor" onclick="showInterests()">Interessi</span>
-							<ul class="items" id="items">
-									<%
-									for(Categoria c: Categoria.values()){
-									  out.println("<li><input type=\"checkbox\" name=\""+c.toString()+"\" value=\""+c.toString()+"\"/> "+c.toString()+"</li>");
-									}
-									%>
-							</ul>
-						</div>
+						 <div id="interests" class="interests" tabindex="100" >
+                        <span class="anchor" onclick="showInterests()">Interessi</span>
+                        <ul class="items" id="items">
+                          <% for(Categoria c: Categoria.values()){%>
+                              <li><input type="checkbox" name="" value="<%=c.toString()%>" onclick="
+                              if(this.checked){
+                              	this.name='<%=c.toString()%>';
+                              }else
+                                this.name='';"><%=c.toString()%></li>
+                           <% } %>
+                        </ul>
+                    </div>
 						<br> Password: <br> <input type="password"
 							name="passwordVecchia" placeholder="Password" minlength="8"
 							maxlength="20"><br> Nuova Password: <br> <input

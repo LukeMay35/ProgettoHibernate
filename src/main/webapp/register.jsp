@@ -32,11 +32,13 @@
                     <div id="interests" class="interests" tabindex="100" >
                         <span class="anchor" onclick="showInterests()">Interessi</span>
                         <ul class="items" id="items">
-                          <%
-                            for(Categoria c: Categoria.values()){
-                              out.println("<li><input type=\"checkbox\" name=\""+c.toString()+"\" value=\""+c.toString()+"\"/> "+c.toString()+"</li>");
-                            }
-                            %>
+                          <% for(Categoria c: Categoria.values()){%>
+                              <li><input type="checkbox" name="" value="<%=c.toString()%>" onclick="
+                              if(this.checked){
+                              	this.name='<%=c.toString()%>';
+                              }else
+                                this.name='';"><%=c.toString()%></li>
+                           <% } %>
                         </ul>
                     </div>
                     <br> Crea una password: <br>
@@ -53,7 +55,7 @@
     <script src="js/jquery-3.2.1.min.js "></script>
     <script src="styles/bootstrap4/popper.js "></script>
     <script src="styles/bootstrap4/bootstrap.min.js "></script>
-
+	<script>
 </body>
 
 </html>

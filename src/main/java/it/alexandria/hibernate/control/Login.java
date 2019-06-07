@@ -222,7 +222,7 @@ public class Login extends HttpServlet implements ILogin {
 
 		List<Categoria> interessi = new ArrayList<Categoria>();
 		for (Categoria c : Categoria.values()) {
-			if (getParameter(content,c.toString()) != null) {
+			if (!getParameter(content,c.toString()).equals("")) {
 				interessi.add(c);
 			}
 		}
