@@ -12,22 +12,23 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
 
-<body style="background-image : url('images/library.jpg');">
+<body>
 
     <div class="super_container">
         <div class="container">
             <div class="register_container" id="register">
-                <h4><b>Registrati</b></h4>
-                <form class="registration_form" action="loginsubmit" method="post">
+                <h4><b>Registrati</b></h4><br>
+                <form name="reg_form" onsubmit="return validateRegistration()" action="loginsubmit" method="post" class="registration_form">
+                   
                     Username:<br>
-                    <input type="hidden" name="type" value="registra"> 
+                   <input type="hidden" name="type" value="registra"> 
                     <input type="text" name="username" class="reg_username" placeholder="Username"><br> Nome: <br>
                     <input type="text" name="name" class="reg_name" placeholder="Nome"><br> Cognome: <br>
                     <input type="text" name="surname" class="reg_surname" placeholder="Cognome"> <br> Data di Nascit&agrave;:<br>
-                    <input type="date" name="date" class="reg_date" placeholder="Data di Nascit&agrave;"><br> Email: <br>
+                    <input type="date" name="date" class="reg_date" placeholder="gg/mm/aaaa"><br> Email: <br>
                     <input type="text" name="email" class="reg_email" placeholder="Email"><br> Telefono: <br>
-                    <input type="text" name="telefono" class="reg_telefono" placeholder="Numero di Telefono"><br>Indirizzo: <br>
-                    <input type="text" name="indirizzo" class="reg_address" placeholder="Indirizzo"><br>
+                    <input type="text" name="tel" class="reg_telefono" placeholder="Numero di Telefono"><br>Indirizzo: <br>
+                    <input type="text" name="address" class="reg_address" placeholder="Indirizzo"><br>
                     <div id="interests" class="interests" tabindex="100" >
                         <span class="anchor" onclick="showInterests()">Interessi</span>
                         <ul class="items" id="items">
@@ -40,7 +41,8 @@
                     </div>
                     <br> Crea una password: <br>
                     <input type="password" name="password" class="reg_password" placeholder="Password"><br>Conferma password: <br>
-                    <input type="password" class="reg_password_confirm" placeholder="Conferma Password"><br> <br>
+                    <input type="password" name="confirm_password" class="reg_password_confirm" placeholder="Conferma Password"><br> <br>
+                   <div id="error"></div> 
                     <input type="submit" class="reg_btn" value="Registrati"><br> <br> Hai gi&agrave; un account?
                     <a class="login_link" href="login.html">Accedi</a>
                 </form>

@@ -25,7 +25,6 @@ COLOR PALETTE
 1. Fonts
 ***********/
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900');
 
 /*********************************
 2. Body and some general stuff
@@ -261,7 +260,6 @@ section {
 
 .super_container {
     width: 100%;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -710,7 +708,6 @@ section {
 
 .logo_container img {
     width: 20%;
-    height: 20%;
 }
 
 
@@ -807,6 +804,7 @@ section {
 
 footer {
     background-color: black;
+    margin-top: 10%;
 }
 
 .footer_nav_container {

@@ -172,6 +172,16 @@
         width: 50%;
         margin-left: 25%;
     }
+    .best_of {
+    margin-top: 18%;
+}
+.login_logo_image {
+    width: 20%;
+    height: 20%;
+}
+.welcome{
+    margin-top: 10%;
+}
 }
 
 @media only screen and (max-width: 575px) {
@@ -214,6 +224,18 @@
     .profile{
         margin-left: 5%;
     }
+    .best_of {
+   margin-top: 20%;
+}
+.profile_container{
+	margin-top:17%;
+	margin-bottom:17%;
+}
+.register_container {
+    margin-top: 15%;
+    width: 70%;
+    margin-left: 15%;
+}
 }
 
 @media only screen and (max-width: 539px) {}
@@ -332,12 +354,26 @@
         margin-top: 5px;
         margin-bottom: 30px;
     }
+    .best_of {
+   margin-top: 25%;
+}
+.login_container {
+    width: 65%;
+    margin-left: 17.5%;
+}
 }
 
 @media only screen and (max-width: 400px) {
     .register_container {
-        margin-top: 5%;
+        margin-top: 15%;
         width: 80%;
         margin-left: 10%;
+    }
+    .login_container {
+        width: 75%;
+        margin-left: 12.5%;
+    }
+    .login_logo_image{
+        width: 25%;
     }
 }

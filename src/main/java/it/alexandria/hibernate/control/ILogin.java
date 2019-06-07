@@ -7,5 +7,5 @@ public interface ILogin {
 	public boolean verificaCredenziali(String username, String password);
 	public void registra(HttpServletRequest request, HttpServletResponse response);
 	public void cambiaPassword(HttpServletRequest request, HttpServletResponse response);
-	public void logout(HttpServletRequest request);
+	public void logout(HttpServletRequest request, HttpServletResponse response);
 }

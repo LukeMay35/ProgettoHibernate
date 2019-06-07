@@ -7,13 +7,24 @@
 1. Vars and Inits
 2. Set Header
 3. Init Menu
-4. Init Quantity
-
-
-
 
 ******************************/
-
+function addToCart(){
+		var product_id;	
+		var  span = document.getElementById('checkout_items');
+		var text = span.textContent;
+		var currentValue = Number(text);
+		var xhr = new XMLHttpRequest();
+		var url = "url";
+		xhr.open("GET", "url?product=" + product_id, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				var json = JSON.parse(xhr.responseText);
+				document.getElementById("checkout_items").innerHTML=currentValue+1;
+			}
+		};
+		xhr.send(null);
+	}
 jQuery(document).ready(function($)
 {
 	"use strict";
@@ -45,11 +56,6 @@ jQuery(document).ready(function($)
 	});
 
 	initMenu();
-	initThumbnail();
-	initQuantity();
-	initStarRating();
-	initFavorite();
-	initTabs();
 
 	/* 
 
@@ -170,34 +176,4 @@ jQuery(document).ready(function($)
 		menuActive = false;
 	}
 
-	/* 
-
-	4. Init Quantity
-
-	*/
-
-	function initQuantity()
-	{
-		if($('.plus').length && $('.minus').length)
-		{
-			var plus = $('.plus');
-			var minus = $('.minus');
-			var value = $('#quantity_value');
-
-			plus.on('click', function()
-			{
-				var x = parseInt(value.text());
-				$('#quantity_value').text(x + 1);
-			});
-
-			minus.on('click', function()
-			{
-				var x = parseInt(value.text());
-				if(x > 1)
-				{
-					$('#quantity_value').text(x - 1);
-				}
-			});
-		}
-	}
 });

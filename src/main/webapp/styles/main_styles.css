@@ -31,8 +31,6 @@ COLOR PALETTE
 1. Fonts
 ***********/
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900');
-
 /*********************************
 2. Body and some general stuff
 *********************************/
@@ -274,7 +272,6 @@ section {
 
 .super_container {
     width: 100%;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -800,7 +797,6 @@ section {
 
 .logo_container img {
     width: 20%;
-    height: 20%;
 }
 
 
@@ -856,7 +852,7 @@ section {
     background: #FE7C7F !important;
 }
 
-.red_button a {
+.red_button span {
     display: block;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -905,13 +901,18 @@ section {
     width: 100%;
     padding: 13px;
 }
+.add_button{
+	background-color: #fe4c50;
+	color: white;
+}
 /*********************************
 4. You may like
 *********************************/
 
 .best_of {
     width: 100%;
-    margin-top: 10%;
+    margin-top: 15%;
+    margin-bottom:5%;
 }
 
 .best_of_title {
@@ -968,6 +969,9 @@ section {
     margin-left: 20%;
     margin-right: 20%;
 }
+.delete_button span{
+	color: blue;
+}
 
 .site-blocks-table img {
     width: 50px;
@@ -980,7 +984,6 @@ section {
     padding-left: 0%;
 }
 
-
 /*********************************
 4.2 You may like Products Grid
 *********************************/
@@ -988,9 +991,11 @@ section {
 .product-grid {
     width: 100%;
     margin-top: 80px;
+    text-align: center;
 }
 
 .product-item {
+	display: inline-block;
     width: 20%;
     height: 380px;
     cursor: pointer;
@@ -1031,6 +1036,7 @@ section {
 
 .product_image img {
     width: 100%;
+    height: 220px;
 }
 
 .product_info {
@@ -1132,6 +1138,7 @@ section {
 }
 
 .add_to_cart_button {
+	color: white;
     width: 100%;
     visibility: hidden;
     opacity: 0;
@@ -1191,8 +1198,6 @@ section {
 .favorite:hover::after {
     color: #fe4c50;
 }
-
-
 /*********************************
 5. Footer
 *********************************/

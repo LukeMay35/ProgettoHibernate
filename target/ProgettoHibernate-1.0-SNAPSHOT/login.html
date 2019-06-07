@@ -12,15 +12,17 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
 
-<body style="background-image : url('images/library.jpg');">
+<body>
 
     <div class="super_container">
         <div class="container">
-            <img src="images/AleXandria_Logo.png" alt="No image Found" class="logo_image"> <br>
-
+            <div class="welcome">
+                <img src="images/AleXandria_Logo.png" alt="No image Found" class="login_logo_image"> <br>
+                <h3><b>Benvenuto a AleXandria!</b></h3> <br>
+            </div>
             <div class="login_container" id="login">
                 <h4><b>Login</b></h4> <br>
-                <form class="login_form" action="loginsubmit" method="post">
+               <form class="login_form" action="loginsubmit" method="post">
                   	<input type="hidden" name="type" value="login">
                     Username:<br>
                     <input type="text" name="username" class="log_username" placeholder="Username"><br> <br> Password: <br>

@@ -68,10 +68,14 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 text-right">
+							<div class="logo_container">
+								<div class="logo_image"><img src="images/AleXandria_Logo.png" alt="AleXandria"></div>
+								<div class="logo_name"><a href="index.jsp">AleX<span>andria</span></a></div>
+							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
 									<li><a href="search">home</a></li>
-									<li><a href="library">libreria</a></li>
+									<li><a href="library">libraria</a></li>
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="boxmessages"><i class="fa fa-envelope" aria-hidden="true"></i></a>
@@ -80,7 +84,7 @@
 									<li class="checkout">
 										<a href="cart.jsp">
 											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-											<span id="checkout_items" class="checkout_items"><%=carrello.getRisorseSelezionate().size()%></span>
+											<span id="checkout_items" class="checkout_items">0</span>
 										</a>
 									</li>
 								</ul>
@@ -113,7 +117,7 @@
 						</ul>
 					</li>
 					<li class="menu_item"><a href="index.jsp">home</a></li>
-					<li class="menu_item"><a href="library">libreria</a></li>
+					<li class="menu_item"><a href="library">libraria</a></li>
 				</ul>
 			</div>
 		</div>
@@ -140,42 +144,17 @@
 						<div class="product_details_title">
 							<h2><%=risorsa.getTitolo()%></h2>
 							<p><%=risorsa.getDescrizione()%></p>
-						</div>
 						<div class="seller">
-							<span>
-								<h5><%=risorsa.getProprietario().getNome()+" "+risorsa.getProprietario().getCognome()%></h5>
-							</span>
-							<button type="button" class="send_button" onclick="$('#contatta_venditore').submit()"><i class="fa fa-envelope" aria-hidden="true"></i>
-								Contatta il Venditore</a>
-								<form id="contatta_venditore" action="boxmessages" method="get">
-									<input type="hidden" name="type" value="contatta_venditore">
-								</form> 
+							<span><h5> <%=risorsa.getProprietario().getNome()+" "+risorsa.getProprietario().getCognome()%></h5></span>
+						<button type="button" class="send_button" onclick="$('#contatta_venditore').submit()"><i class="fa fa-envelope" aria-hidden="true"></i> Contatta il Venditore</a></button>
+							<form id="contatta_venditore" action="boxmessages" method="get">
+								<input type="hidden" name="type" value="contatta_venditore">
+							</form> 
 						</div>
 					</div>
 					<div id="price" class="product_price">&euro;<%=risorsa.getPrezzo()%></div>
-
-					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-						<span>Quantit&agrave;:</span>
-						<div class="quantity_selector">
-					<script type = "text/JavaScript">
-				        function Plus(){
-				        	var val=parseInt($('#quantity_value').text())+1;
-				        	$('#quantity_value').text(val);
-				        	$('#quantity').val(val);
-				        	$('#price').html('&euro;'+parseFloat(val*<%=risorsa.getPrezzo()%>).toFixed(2));
-				        }
-				        function Minus(){
-				        	var val=parseInt($('#quantity_value').text())-1;
-        					$('#quantity_value').text(val);
-        					$('#quantity').val(val);
-							$('#price').html('&euro;'+parseFloat(val*<%=risorsa.getPrezzo()%>).toFixed(2));
-        				}
-					</script>
-							<span class="minus" onclick="Minus()"><i class="fa fa-minus" aria-hidden="true"></i></span>
-							<span id="quantity_value">1</span>
-							<span class="plus" onclick="Plus()"><i class="fa fa-plus" aria-hidden="true"></i></span>
-						</div>
-						<div class="red_button add_to_cart_button"><a onclick="$('#aggiungi_al_carrello').submit()">Aggiungi al Carrello</a></div> <br>
+					<br> <br> <br>
+					<div class="red_button add_to_cart_button"><a onclick="$('#aggiungi_al_carrello').submit()">Aggiungi al Carrello</a></div> <br>
 						<form method="get" action="profile" id="aggiungi_al_carrello">
 							<input type="hidden" value="aggiungi" name="type">
 							<input type="hidden" name="id" value="<%=risorsa.getId()%>">
@@ -188,46 +167,46 @@
 						<input type="hidden" name="id" value="<%=risorsa.getId()%>">
 					</form>
 				</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	<br />
 
 	<div class="comments_container">
 		<h3>Commenti <i class="fa fa-comments-o" aria-hidden="true"></i></h3>
 		<div class="comments_box">
-			<div class="comments">
+			<div class="comments" id="comments">
 				<% for(Commento c: risorsa.getCommenti()) { %>
-				<div class="users_comments">
-					<span class="username_comment"><strong><i class="fa fa-user"></i><%=c.getMittente().getUsername()%></strong></span>
-					<div class="comment">
-						<p><%=c.getTesto()%>
-						</p>
-						<span class="time_date"> 
-					<%
-                    SimpleDateFormat format=new SimpleDateFormat("hh:mm | yyyy/MM/dd");
-					Calendar rapr=Calendar.getInstance();
-					rapr.setTime(c.getData());
-					String formatted=format.format(rapr.getTime());
-                    %>
-                    <%=formatted%></span>
+					<div class="users_comments">
+						<span class="username_comment"><strong><i class="fa fa-user"></i><%=c.getMittente().getUsername()%></strong></span>
+						<div class="comment">
+							<p><%=c.getTesto()%>
+							</p>
+							<span class="time_date"> 
+						<%
+						SimpleDateFormat format=new SimpleDateFormat("hh:mm | yyyy/MM/dd");
+						Calendar rapr=Calendar.getInstance();
+						rapr.setTime(c.getData());
+						String formatted=format.format(rapr.getTime());
+						%>
+						<%=formatted%></span>
+						</div>
 					</div>
+					<% } %>
 				</div>
-				<% } %>
-			</div>
-			<div class="add_comment">
-				<div class="input_write_comment">
-					<form class="comment_form" action="resource" method="get" id="manda_commento">
-						<input type="hidden" name="type" value="inserisciCommento">
-						<input type="hidden" name="username" value="<%=username%>">
-						<input type="text" name="testo" class="write_comment" placeholder="  Aggiungi un Commento..." />
-					</form>
-					<button class="comment_send_btn" type="button" onclick="$('#manda_commento').submit()"><i class="fa fa-comment"
-								aria-hidden="true"></i></button>
+				<div class="add_comment">
+					<div class="input_write_comment">
+						<form class="comment_form" action="resource" method="get" id="manda_commento">
+							<input type="hidden" name="type" value="inserisciCommento">
+							<input type="hidden" name="username" value="<%=username%>">
+							<input type="text" name="testo" class="write_comment" placeholder="  Aggiungi un Commento..." />
+						</form>
+						<button class="comment_send_btn" type="button" onclick="$('#manda_commento').submit()"><i class="fa fa-comment"
+									aria-hidden="true"></i></button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 	<!-- Footer -->
 	<footer class="footer">
@@ -256,14 +235,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="footer_nav_container">
-						<div class="cr">Â©2019 All Rights Reserverd.</div>
+						<div class="cr">©2019 All Rights Reserved.</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
-
-	</div>
 	<script type="text/javascript">
 		var element = document.getElementById("comments");
 		element.scrollTop = element.scrollHeight;

@@ -264,7 +264,6 @@ section {
 
 .super_container {
     width: 100%;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -685,7 +684,6 @@ section {
 
 .logo_container img {
     width: 20%;
-    height: 20%;
 }
 
 
@@ -775,7 +773,7 @@ section {
     background: #FE7C7F !important;
 }
 
-.red_button a {
+.red_button span{
     display: block;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -823,48 +821,8 @@ section {
     line-height: 30px;
     margin-top: 2px;
 }
-
-.quantity {
-    width: 100%;
-    height: 40px;
-    margin-top: 23px;
-}
-
-.quantity_selector {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 132px;
-    height: 100%;
-    border: solid 1px #e5e5e5;
-    margin-left: 29px;
-}
-
-.quantity_selector span {
-    font-weight: 500;
-    color: #232530;
-}
-
-.plus,
-.minus {
-    padding-left: 14px;
-    padding-right: 14px;
-    cursor: pointer;
-}
-
-.plus:hover,
-.minus:hover {
-    color: #b5aec4;
-}
-
 .add_to_cart_button {
     width: 160px;
-    margin-left: 19px;
     font-size: 12px !important;
 }
 
@@ -884,7 +842,6 @@ section {
     display: -ms-inline-flexbox;
     display: -webkit-inline-flex;
     display: inline-flex;
-    left: 45%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

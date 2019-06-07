@@ -40,7 +40,7 @@ public class Login extends HttpServlet implements ILogin {
 		if (type==null) {
 			dispatch(request, response);
 		} else if (type.equals("logout")) {
-			logout(request);
+			logout(request,response);
 		} else {
 			try {
 				response.sendRedirect("/alexandria");
@@ -222,15 +222,15 @@ public class Login extends HttpServlet implements ILogin {
 
 		List<Categoria> interessi = new ArrayList<Categoria>();
 		for (Categoria c : Categoria.values()) {
-			if (request.getParameter(c.toString()) != null) {
+			if (getParameter(content,c.toString()) != null) {
 				interessi.add(c);
 			}
 		}
 
 		String email = getParameter(content,"email");
-		String numeroTel = getParameter(content,"telefono");
+		String numeroTel = getParameter(content,"tel");
 		String password = getParameter(content,"password");
-		String indirizzo = getParameter(content,"indirizzo");
+		String indirizzo = getParameter(content,"address");
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
@@ -330,9 +330,15 @@ public class Login extends HttpServlet implements ILogin {
 		return;
 	}
 
-	public void logout(HttpServletRequest request) {
+	public void logout(HttpServletRequest request, HttpServletResponse response) {
 		HibernateUtil.printLog("Richiesta di logout da parte di "+request.getSession().getAttribute("username"));
 		request.getSession().invalidate();
+		try {
+			response.sendRedirect("/alexandria");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
