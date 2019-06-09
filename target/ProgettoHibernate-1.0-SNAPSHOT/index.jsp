@@ -141,9 +141,9 @@
 				<div class="row ">
 					<div class="col ">
 						<div class="search-container">
-							<form action="#" method="get">
+							<form action="search" method="get">
 								<input class="search expandright " id="searchright "
-									type="search" name="q " placeholder="Search "> <label
+									type="text" name="chiave" placeholder="Search "> <label
 									class="button1 searchbutton " for="searchright "><span
 									class="mglass ">&#9906;</span></label>
 							</form>

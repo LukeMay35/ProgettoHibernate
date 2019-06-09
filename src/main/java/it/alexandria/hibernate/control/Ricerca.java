@@ -46,8 +46,20 @@ public class Ricerca extends HttpServlet implements IRicerca{
 				return null;
 			} 
 		}
+		String chiave=request.getParameter("chiave");
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
+		if(chiave!=null) {
+			chiave="%"+chiave+"%";
+			HibernateUtil.printLog("Avvenuta ricerca da utente "+request.getSession().getAttribute("username")+" con chiave "+chiave);
+			@SuppressWarnings("unchecked")
+			List<Risorsa> risorseS=(List<Risorsa>)session.createQuery("FROM RISORSA WHERE RES_ID NOT IN (SELECT ven.risorsaVenduta.id FROM it.alexandria.hibernate.model.Vendita as ven) AND (TITOLO LIKE :CHIAVE OR CATEGORIA LIKE :CHIAVE OR AUTORI LIKE :CHIAVE OR DESCRIZIONE LIKE :CHIAVE)")
+			.setParameter("CHIAVE", chiave)
+			.getResultList();
+			session.getTransaction().commit();
+			session.close();
+			return risorseS;
+		}
 		HibernateUtil.printLog("Avvenuta ricerca da utente "+request.getSession().getAttribute("username"));
 		@SuppressWarnings("unchecked")
 		List<Risorsa> risorse=(List<Risorsa>)session.createQuery("FROM RISORSA WHERE RES_ID NOT IN (SELECT ven.risorsaVenduta.id FROM it.alexandria.hibernate.model.Vendita as ven)")
